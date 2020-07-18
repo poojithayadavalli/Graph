@@ -27,7 +27,7 @@ Input:
 
 Output
 
-2 4  ({1,2}{1,4},{2,3}{1,3}{3,4} are also possible)
+1 3  ({1,2}{1,4},{2,3}{2,4}{3,4} are also possible)
 
 Example 2:
 
@@ -40,7 +40,7 @@ Input:
 
 output:
 
-2 ({1},{3} are also possible)
+1 ({2},{3} are also possible)
 
 """
 n,m=map(int,input().split())
@@ -54,15 +54,15 @@ def add_edges(x, y):
 def dfs(x, state):
     v[state].append(x+1)
     vis[x] = 1
-    for i in gr[x]: 
+    for i in sorted(gr[x]): 
         if (vis[i] == 0): 
             dfs(i, state ^ 1) 
 def Print_vertices():
-    if (len(v[0]) <= len(v[1])): 
-        for i in v[0]: 
+    if (len(v[1]) < len(v[0])): 
+        for i in v[1]: 
             print(i,end=" ") 
     else: 
-        for i in v[1]: 
+        for i in v[0]: 
             print(i,end=" ") 
   
 
@@ -71,4 +71,5 @@ for i in range(m):
     add_edges(x-1, y-1)
 dfs(0, 0)
 Print_vertices() 
+
 
