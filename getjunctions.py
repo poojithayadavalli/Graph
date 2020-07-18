@@ -1,4 +1,35 @@
 """
+Problem Description
+
+You are given some routes connecting two places.Your task is to connect all the routes given in the form of a graph.
+and find all the junctions in the graph
+
+Input:
+
+First line consists of no of places V
+second line consists of no of routes U
+next U line conists of routes connecting two places x and y
+
+Output:
+
+print all the junction nodes in the graph
+
+Example:
+
+Input:
+
+5
+6
+0 4
+1 2
+1 3
+1 4
+2 3
+3 4
+
+Output:
+
+1
 
 """
 
