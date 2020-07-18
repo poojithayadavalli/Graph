@@ -1,5 +1,5 @@
 """
-You are given n vertices and m edges of a graph.your task is to find all the vertices that are connected with the remaining all other vertices in the graph.
+You are given n vertices and m edges of a graph.your task is to find all the vertices that have remaining all other vertices as neighbours in the graph.
 
 If no such vertices are present in the graph print -1
 
