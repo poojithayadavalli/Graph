@@ -31,16 +31,35 @@ Output:
 
 4
 
+Explanation:
+
+we have three connected subgraphs 1-2-3, 5-6 , 4.since 4 is only node in that sub graph it is the answer.
+
+Example 2:
+
+Input:
+
+6
+4
+1 2
+2 3
+1 4
+2 4
+
+Output:
+
+5 6
+
 """
 def addEdge(adj, u, v): 
-    adj[u].append(v)
-    adj[v].append(u)
+    adj[u-1].append(v-1)
+    adj[v-1].append(u-1)
 
 def singleton(adj):
     l=[]
     for i in range(len(adj)):
-        if len(adj[i])==None:
-            l.append(str(i))
+        if adj[i]==[]:
+            l.append(str(i+1))
     return " ".join(l)
   
 v=int(input())
