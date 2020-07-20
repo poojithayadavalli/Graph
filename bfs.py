@@ -36,3 +36,30 @@ Output:
 1 2 3 5 4
 
 """
+
+def addEdge(s,d,graph):
+    graph[s].append(d)
+def bfs(graph,visit):
+    l=[]
+    for i in range(1,len(graph)):
+        if visit[i]==False:
+            visit[i]=True
+            q=[]
+            q.append(i)
+            while q:
+                u=q.pop(0)
+                l.append(str(u))
+                for j in range(len(graph[u])):
+                    if visit[graph[u][j]]==False:
+                        q.append(graph[u][j])
+                        visit[graph[u][j]]=True
+    return " ".join(l)
+
+v,e=map(int,input().split())
+g=[[]for i in range(v+1)]
+visit=[False]*(v+1)
+for i in range(e):
+    s,d=map(int,input().split())
+    addEdge(s,d,g)
+print(bfs(g,visit))
+        
