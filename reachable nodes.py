@@ -14,7 +14,7 @@ Next E lines Contains edges connecting two vertices
 
 Output:
 
-print all the reachable vertices from the given vertex
+print all the reachable vertices from the given vertex in sorted order
 
 Example 1:
 
