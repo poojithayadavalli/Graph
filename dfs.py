@@ -36,3 +36,29 @@ Output:
 1 2 5 3 4
 
 """
+
+def addEdge(s,d,graph):
+    graph[s].append(d)
+    
+def dfs(graph,visit,l):
+    for i in range(1,len(graph)):
+        if visit[i]==False:
+            dfsutil(i,graph,visit,l)
+    return " ".join(l)
+
+def dfsutil(s,graph,visit,l):
+    visit[s]=True
+    l.append(str(s))
+    for j in graph[s]:
+        if visit[j]==False:
+            dfsutil(j,graph,visit,l)
+    return
+
+v,e=map(int,input().split())
+g=[[]for i in range(v+1)]
+visit=[False]*(v+1)
+l=[]
+for i in range(e):
+    s,d=map(int,input().split())
+    addEdge(s,d,g)
+print(dfs(g,visit,l))
