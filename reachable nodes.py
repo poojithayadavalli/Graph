@@ -10,11 +10,11 @@ Input:
 Firstline contains number of edges V
 Secondline contains source vertex S
 Third line contains number of edges E
-Next E lines Contains edges connecting two vertices and its weight
+Next E lines Contains edges connecting two vertices
 
 Output:
 
-print the neighbouring nodes of given vertex
+print all the reachable vertices from the given vertex
 
 Example 1:
 
@@ -32,7 +32,7 @@ Input:
 4 5
 
 Output:
-2 3 4
+2 3 4 5
 
 Example 2:
 
@@ -55,18 +55,24 @@ graph = [[] for _ in range(100000)]
 def addEdge(S, D):
     graph[S].append(D)
 
-def neighbour(S, V ):
+def reachable(S, V ):
     node=[]
+    q=[]
+    q.append(S)
     if (len(graph[S]) > 0):
-        for i in range(len(graph[S])):
-            node.append(str(graph[S][i]))
-        return " ".join(node)
+        while len(q)>0:
+            x=q.pop(0)
+            for i in range(len(graph[x])):
+                if graph[x][i] not in node:
+                    node.append(graph[x][i])
+                    q.append(graph[x][i])
+       return node
     else:
-        return -1
+        return [-1]
 v = int(input())
 S = int(input())
 e = int(input())
 for i in range(e):
     x,y = map(int,input().split())
     addEdge(x,y)
-print(neighbour(S,v))
+print(" ".join(sorted(reachable(S,v))))
