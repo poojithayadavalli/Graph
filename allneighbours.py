@@ -10,7 +10,7 @@ Input:
 Firstline contains number of edges V
 Secondline contains source vertex S
 Third line contains number of edges E
-Next E lines Contains edges connecting two vertices and its weight
+Next E lines Contains edges connecting two vertices
 
 Output:
 
