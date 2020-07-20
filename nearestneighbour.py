@@ -10,7 +10,7 @@ Note:Nearest neighbour is a neighbour with least weight
 Input:
 
 Firstline contains number of edges V
-Secondline contains source and destination vertices S ,D
+Secondline contains source vertex S
 Third line contains number of edges E
 Next E lines Contains edges connecting two vertices and its weight
 
