@@ -41,4 +41,21 @@ Output:
 2
 
 """
+def addEdge(s,d,graph):
+    graph[s].append(d)
+    graph[d].append(s)
+def bestNeighbour(graph):
+    l=0
+    for i in range(1,len(graph)):
+        if len(graph[i])>l:
+            l=len(graph[i])
+            best=i
+    return best
+v=int(input())
+e=int(input())
+g=[[]for i in range(v+1)]
+for i in range(e):
+    s,d=map(int,input().split())
+    addEdge(s,d,g)
+print(bestNeighbour(g))
 
