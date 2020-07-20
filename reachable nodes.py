@@ -66,7 +66,7 @@ def reachable(S, V ):
                 if graph[x][i] not in node:
                     node.append(graph[x][i])
                     q.append(graph[x][i])
-       return node
+        return node
     else:
         return [-1]
 v = int(input())
@@ -75,4 +75,5 @@ e = int(input())
 for i in range(e):
     x,y = map(int,input().split())
     addEdge(x,y)
-print(" ".join(sorted(reachable(S,v))))
+y=sorted(reachable(S,v))
+print(*y)
