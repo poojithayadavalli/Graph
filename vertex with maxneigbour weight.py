@@ -41,7 +41,7 @@ Input:
 3 2 20
 
 Output:
-3
+2
 """
 def addEdge(s,d,graph,weight):
     graph[s].append([d,weight])
