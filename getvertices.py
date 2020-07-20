@@ -9,7 +9,7 @@ second line consists of no of routes U
 next U line conists of routes connecting two places x and y
 
 Output:
-print all the graph formed by connecting all the routes (use dfs to represent graph)
+print the graph formed by connecting all the routes (use dfs to represent graph)
 
 
 Example:
