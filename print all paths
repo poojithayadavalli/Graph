@@ -1,0 +1,107 @@
+"""
+
+Lord Krishna is roaming in a maze in search of a ring.The maze consists of several cells which are connected in several ways.
+
+He found out that the ring is at the cell Y.He went untill the cell X and got confused in finding the way to reach the required cell.
+
+The task is to find all the possible ways from X to Y.The cells in the maze are connected in such a way that resembles a directed graph.
+
+Input:
+
+First line indicates no of cells N
+Next N lines contains the cell value
+Nextline indicates no of connections E
+Next E lines contains path from A to B
+Nextline indicates cell X
+Nextline indiactes cell Y
+
+Output:
+
+print all the paths from X to Y in seperate lines
+
+Example:
+
+Input:
+4
+2
+7
+9
+4
+4
+7 5
+5 9
+9 7
+2 9
+7
+9
+
+Output:
+7 5 9
+
+Example 2:
+
+Input:
+4
+5
+7
+9
+2
+5
+7 2
+2 9
+2 5
+5 9
+9 7
+7
+9
+
+Output:
+
+7 2 9
+7 2 5 9
+
+"""
+
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices 
+        self.graph = [[]for i in range(vertices)]
+ 
+    def addEdge(self, u, v): 
+        self.graph[u].append(v) 
+
+    def printAllPathsUtil(self, u, d, visited, path,l): 
+        visited[u]= True
+        path.append(u) 
+        if u == d:
+            l.append(list(path))
+        else: 
+            for i in self.graph[u]: 
+                if visited[i]== False:
+                    self.printAllPathsUtil(i, d, visited, path,l)
+        path.pop() 
+        visited[u]= False
+
+    def printAllPaths(self, s, d):
+        l=[]
+        visited =[False]*(self.V) 
+        path = [] 
+        self.printAllPathsUtil(s, d, visited, path, l)
+        return l
+v=int(input())
+h=0
+for i in range(v):
+    x=int(input())
+    if x>h:
+        h=x
+g=Graph(h+1)
+e=int(input())
+
+for i in range(e):
+    x,y=map(int,input().split())
+    g.addEdge(x,y)
+S=int(input())
+D=int(input())
+l=g.printAllPaths(S, D)
+for i in range(len(l)):
+    print(*l[i])
