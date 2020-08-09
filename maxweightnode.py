@@ -1,5 +1,5 @@
 """
-
+Maximum Weight Cell
 Given a maze with N cells. A Maze is similar to a directed graph.Each cell may have multiple entry paths but it must have only one exit path.
 
 The cells are numbered from 0 to N.Your task is to find the maximum weight cell in the maze.Weight of a cell is the sum of all node numbers pointing to it.
